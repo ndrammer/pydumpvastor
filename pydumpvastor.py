@@ -60,7 +60,7 @@ Kernel32.GetSystemInfo(ctypes.byref(sysinfo))
 
 
 #baseaddress
-hModule = ctypes.c_ulonglong()  # Usar c_ulonglong para sistemas de 64 bits
+hModule = ctypes.c_ulonglong()  #  c_ulong for 32 bits
 count = ctypes.c_ulong()
 modname = ctypes.create_unicode_buffer(30)
     
@@ -83,7 +83,7 @@ class MEMORY_BASIC_INFORMATION(ctypes.Structure):
 
 mbi = MEMORY_BASIC_INFORMATION()
 
-ctypes.windll.Kernel32.VirtualQueryEx(ctypes.windll.kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid), ctypes.c_uint64(hModule.value), ctypes.byref(mbi),ctypes.sizeof(mbi)) #LA CLAVE!!!!!
+ctypes.windll.Kernel32.VirtualQueryEx(ctypes.windll.kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid), ctypes.c_uint64(hModule.value), ctypes.byref(mbi),ctypes.sizeof(mbi)) 
 
 
 
