@@ -1,4 +1,4 @@
-import ctypes
+(import ctypes
 import ctypes.wintypes
 from ctypes.wintypes import WORD, DWORD,LONG, LPVOID, HANDLE
 from ctypes import byref
@@ -67,7 +67,7 @@ modname = ctypes.create_unicode_buffer(30)
 # Enum Process
 if ctypes.windll.psapi.EnumProcessModulesEx(handle, ctypes.byref(hModule), ctypes.sizeof(hModule), ctypes.byref(count), 3):
 
-    print(f"Process BaseAddress: {hModule.value}")
+    print(f"Process BaseAddress: {hex(hModule.value)}")
 else:
     print("Not possible to get BaseAddress.")
 
