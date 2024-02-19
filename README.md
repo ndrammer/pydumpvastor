@@ -26,3 +26,8 @@ pyinstaller --onefile  pydumpvastor.py
 ```
 
 .exe is place in dist folder
+
+--------------------------
+### ToDo
+
+Needs to be improved as not all memory regions are dumped
