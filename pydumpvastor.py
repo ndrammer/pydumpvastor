@@ -113,8 +113,8 @@ while (address < final):
     address += sysinfo.dwPageSize
     
 
-#print('[+] Dump finished')
-print(buffer.raw)
+print('[+] Dump finished')
+#print(buffer.raw)
 
 #-----------Writing to file-----------
 
