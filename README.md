@@ -1,6 +1,6 @@
 # pydumpvastor
 
-Dumps memory of the process with the selected PID.
+Dumps memory of the process with the selected PID. At this moments it is just a PoC of implementing Win APIs using python ctype libraries.
 
 Output file is hardcoded to ex.zip
 
