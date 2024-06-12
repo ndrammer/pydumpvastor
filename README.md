@@ -1,6 +1,6 @@
 # pydumpvastor
 
-Dumps memory of the process with the selected PID. At this moments it is just a PoC of implementing Win APIs using python ctypes libraries.
+Dumps memory of the process with the selected PID. It began just to understand how to access Win APIs using python ctypes libraries.
 
 Output file is hardcoded to ex.zip
 
@@ -30,4 +30,4 @@ pyinstaller --onefile  pydumpvastor.py
 --------------------------
 ### ToDo
 
-Needs to be improved as not all memory regions are dumped
+Achive a lsass dump compatible with mimikatz or pypykatz.
