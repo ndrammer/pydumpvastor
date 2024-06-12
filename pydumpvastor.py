@@ -98,9 +98,8 @@ while address < mem_region_end:
 
         for addres_s in range(mbi.BaseAddress, mbi.BaseAddress+mbi.RegionSize, chunk_size):
             buffer = (ctypes.c_char * 4096)() 
-            #bytesRead = SIZE_T()                   
+                             
             if (ctypes.windll.kernel32.ReadProcessMemory(handle, ctypes.c_ulonglong(addres_s), ctypes.byref(buffer), 4096, None)):
-                #print('[...]Dumping')
                 dump_data.write(buffer.raw)
             else:
                 ctypes.WinError(ctypes.get_last_error())
