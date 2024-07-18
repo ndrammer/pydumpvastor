@@ -31,3 +31,4 @@ pyinstaller --onefile  pydumpvastor.py
 ### ToDo
 
 Achive a lsass dump compatible with mimikatz or pypykatz.
+Check https://github.com/ricardojoserf/NativeDump/tree/python-flavour
